@@ -15,7 +15,7 @@ export const routes = () => {
       children: [
         {
           element: <Article />,
-          path: RouterPath.Article,
+          path: `${RouterPath.Feed}/:id`,
         },
         {
           element: <Feed />,

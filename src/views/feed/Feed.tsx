@@ -1,17 +1,34 @@
 import * as React from 'react'
-import { useNavigate } from 'react-router-dom'
-import RouterPath from '@/router/RouterPath'
+import { Loader, Center } from '@mantine/core';
+import FeedItem from '@/components/feedItem'
+import { useApiGetFeed } from '@/api/useApiGetFeed'
 
 import * as S from './Feed.style'
 
 const Feed = () => {
-  const navigate = useNavigate()
+  const { data, isLoading, isError } = useApiGetFeed()
 
   return (
-    <>
-      FEED
-      <button type='button' onClick={() => { navigate(RouterPath.Article) }}></button>
-    </>
+    <S.FeedWrapper>
+      {
+        !isLoading ?
+          <>
+            {
+              data?.map(feedItem => (
+                <FeedItem
+                  key={feedItem.id}
+                  {...feedItem}
+                />
+              ))
+            }
+          </>
+          :
+          <Center>
+            <Loader />
+          </Center>
+      }
+
+    </S.FeedWrapper>
   )
 }
 

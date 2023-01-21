@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Outlet, useNavigate } from 'react-router-dom'
-import { Container, Loader } from '@mantine/core';
+import { Container, Loader, Center } from '@mantine/core';
 import ThemeSwitcher from '@/components/themeSwitcher'
 import RouterPath from '@/router/RouterPath'
 
@@ -20,9 +20,13 @@ const MainLayout = () => {
       </S.ThemeSwitcherContainer>
 
       <React.Suspense
-        fallback={<Loader />}
+        fallback={
+          <Center>
+            <Loader />
+          </Center>
+        }
       >
-        <Container size="md">
+        <Container size="sm">
           <Outlet />
         </Container>
       </React.Suspense>

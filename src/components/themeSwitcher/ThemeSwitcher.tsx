@@ -9,7 +9,7 @@ const ThemeSwitcher = () => {
   return (
     <ActionIcon
       variant="outline"
-      color={dark ? 'yellow' : 'blue'}
+      color={dark ? 'yellow' : 'gray'}
       onClick={() => toggleColorScheme()}
       title="Toggle color scheme"
     >
