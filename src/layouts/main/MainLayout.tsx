@@ -1,5 +1,7 @@
 import * as React from 'react'
 import { Outlet, useNavigate } from 'react-router-dom'
+import { Container, Loader } from '@mantine/core';
+import ThemeSwitcher from '@/components/themeSwitcher'
 import RouterPath from '@/router/RouterPath'
 
 import * as S from './MainLayout.style'
@@ -12,14 +14,19 @@ const MainLayout = () => {
   }, []);
 
   return (
-    <>
-      <h1>MAINLAYOUT</h1>
+    <S.MainLayoutWrapper>
+      <S.ThemeSwitcherContainer>
+        <ThemeSwitcher />
+      </S.ThemeSwitcherContainer>
+
       <React.Suspense
-        fallback="Loading..."
+        fallback={<Loader />}
       >
-        <Outlet />
+        <Container size="md">
+          <Outlet />
+        </Container>
       </React.Suspense>
-    </>
+    </S.MainLayoutWrapper>
   )
 }
 
