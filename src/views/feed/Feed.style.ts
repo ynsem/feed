@@ -1,12 +1,6 @@
 import styled from '@emotion/styled'
-import { css } from '@/theme'
 
-const { gaps } = css
-
-export const FeedWrapper = styled.section`
-  > * {
-    :not(:last-child) {
-      margin-bottom: ${gaps.md};
-    }
-  }
+export const FeedWrapper = styled.ul`
+  margin: 0;
+	padding: 0;
 `
