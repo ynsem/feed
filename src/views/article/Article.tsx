@@ -1,8 +1,9 @@
 import * as React from 'react'
 
-import { Loader, Center } from '@mantine/core';
+import { Loader, Center, Space  } from '@mantine/core';
 import Card from '@/components/card'
 import ReturnButton from '@/components/returnButton'
+import CommentList from '@/components/commentList';
 
 import { useArticleIdFromUrl } from '@/hooks/useArticleIdFromUrl'
 import { useApiGetArticle } from '@/api/useApiGetArticle'
@@ -20,6 +21,8 @@ const Article = () => {
           <>
             <ReturnButton />
             <Card {...data} />
+            <Space h="md" />
+            <CommentList id={data?.id} />
           </>
           :
           <Center>

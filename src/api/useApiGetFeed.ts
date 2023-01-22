@@ -2,9 +2,10 @@ import axios from 'axios'
 import { useQuery } from '@tanstack/react-query'
 import { TFeed } from '@/types'
 import { TReactQuery } from './types'
+import { APP_URL } from './constants'
 
 const getFeed = async (): Promise<TFeed> => {
-  const { data } = await axios.get<TFeed>('https://63c652e7dcdc478e15bf1f66.mockapi.io/news?sortBy=createdAt&order=desc')
+  const { data } = await axios.get<TFeed>(`${APP_URL}/news?sortBy=createdAt&order=desc`)
   return data
 }
 

@@ -1,18 +1,18 @@
 import axios from 'axios'
 import { useQuery } from '@tanstack/react-query'
-import { TFeedItem } from '@/types'
+import { TCommentList } from '@/types'
 import { TReactQuery } from './types'
 import { CACHE_TIME_MS, APP_URL } from './constants'
 
-const getArticle = async (id?: string): Promise<TFeedItem> => {
-  const { data } = await axios.get<TFeedItem>(`${APP_URL}/news/${id}`)
+const getComments = async (id?: string): Promise<TCommentList> => {
+  const { data } = await axios.get<TCommentList>(`${APP_URL}/news/${id}/comments`)
   return data
 }
 
-export const useApiGetArticle = (id?: string): TReactQuery<TFeedItem> => {
+export const useApiGetComments = (id?: string): TReactQuery<TCommentList> => {
   const { data, isError, isLoading } = useQuery(
-    ['getArticle'],
-    () => getArticle(id),
+    ['getComments'],
+    () => getComments(id),
     { enabled: !!id, cacheTime: CACHE_TIME_MS }
   )
   return { data, isError, isLoading }

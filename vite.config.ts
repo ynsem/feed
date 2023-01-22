@@ -1,10 +1,14 @@
 import { defineConfig, splitVendorChunkPlugin } from 'vite'
 import react from '@vitejs/plugin-react'
 import eslintPlugin from '@nabla/vite-plugin-eslint'
-import { resolve } from 'path'
+import path, { resolve } from 'path'
 import viteCompression from 'vite-plugin-compression'
 import { createHtmlPlugin } from 'vite-plugin-html'
+import { config } from 'dotenv'
 
+const { parsed } = config({
+  path: path.resolve(process.cwd(), '.env'),
+})
 
 const common = {
   server: {
@@ -23,7 +27,11 @@ const plugins = [
       babelrc: true,
     },
   }),
-  createHtmlPlugin()
+  createHtmlPlugin({
+    inject: {
+      data: parsed 
+    }
+  })
 ]
 
 export default defineConfig(({ command }) => {

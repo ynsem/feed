@@ -9,3 +9,14 @@ export type TFeedItem = {
 }
 
 export type TFeed = TFeedItem[]
+
+export type TComment = {
+  id: string
+  newsId: string
+  createdAt: string
+  avatar: string
+  author: string
+  text: string
+}
+
+export type TCommentList = TComment[]
