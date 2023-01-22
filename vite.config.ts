@@ -48,5 +48,6 @@ export default defineConfig(({ command }) => {
   return {
     ...common,
     plugins: [eslintPlugin(), ...plugins],
+    base: "/feed/"
   }
 })
