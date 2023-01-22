@@ -1,6 +1,8 @@
 import * as React from 'react'
+
 import { Loader, Center } from '@mantine/core';
 import FeedItem from '@/components/feedItem'
+
 import { useApiGetFeed } from '@/api/useApiGetFeed'
 
 import * as S from './Feed.style'

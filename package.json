@@ -19,7 +19,8 @@
     "dayjs": "^1.11.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.7.0"
+    "react-router-dom": "^6.7.0",
+    "react-use": "^17.4.0"
   },
   "devDependencies": {
     "@nabla/vite-plugin-eslint": "^1.5.0",

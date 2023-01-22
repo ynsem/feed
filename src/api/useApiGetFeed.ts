@@ -4,7 +4,7 @@ import { TFeed } from '@/types'
 import { TReactQuery } from './types'
 
 const getFeed = async (): Promise<TFeed> => {
-  const { data } = await axios.get<TFeed>('https://63c652e7dcdc478e15bf1f66.mockapi.io/news')
+  const { data } = await axios.get<TFeed>('https://63c652e7dcdc478e15bf1f66.mockapi.io/news?sortBy=createdAt&order=desc')
   return data
 }
 

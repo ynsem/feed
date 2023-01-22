@@ -1,15 +1,31 @@
 import * as React from 'react'
-import { useNavigate } from 'react-router-dom'
+
+import { Loader, Center } from '@mantine/core';
+import Card from '@/components/card'
+import ReturnButton from '@/components/returnButton'
+
+import { useArticleIdFromUrl } from '@/hooks/useArticleIdFromUrl'
+import { useApiGetArticle } from '@/api/useApiGetArticle'
 
 import * as S from './Article.style'
 
 const Article = () => {
-  const navigate = useNavigate()
+  const articleId = useArticleIdFromUrl()
+  const { data, isError, isLoading } = useApiGetArticle(articleId)
 
   return (
     <>
-      ARTICLE
-      <button type='button' onClick={() => { navigate(-1) }}></button>
+      {
+        !isLoading ?
+          <>
+            <ReturnButton />
+            <Card {...data} />
+          </>
+          :
+          <Center>
+            <Loader />
+          </Center>
+      }
     </>
   )
 }

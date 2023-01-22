@@ -11,6 +11,11 @@ export const FeedItem = styled.li`
   :not(:last-child) {
     margin-bottom: ${gaps.md};
   }
+
+  :hover {
+    transform: scale(1.02);
+    transition-duration: 300ms;
+  }
 `
 
 export const FeedItemLink = styled(NavLink)`
