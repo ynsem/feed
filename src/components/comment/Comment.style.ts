@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom'
 import styled from '@emotion/styled'
 
-import { css } from '@/theme'
+import { css } from '../../theme'
 
 const { gaps } = css
 

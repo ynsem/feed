@@ -1,6 +1,6 @@
 import { Card, Avatar, Text, Group } from '@mantine/core';
 
-import { formatDate } from '@/helpers/dateFormat';
+import { formatDate } from '../../helpers/dateFormat';
 import { TComment } from '@/types'
 
 import * as S from './Comment.style'
@@ -9,7 +9,7 @@ type TProps = Omit<TComment, 'id' | 'newsId'>
 
 const Comment = ({ createdAt, avatar, author, text }: TProps) => {
   return (
-    <S.CommentWrapper>
+    <S.CommentWrapper test-id="Comment">
       <Card p="sm" radius="md" withBorder>
         <Group position="apart" mt="xs" mb="xs" align="top">
           <Avatar size="md" src={avatar} alt="avatar" />

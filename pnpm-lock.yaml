@@ -4,7 +4,10 @@ specifiers:
   '@emotion/react': ^11.10.5
   '@emotion/styled': ^11.10.5
   '@mantine/core': ^5.10.1
+  '@mantine/hooks': ^5.10.3
   '@nabla/vite-plugin-eslint': ^1.5.0
+  '@playwright/experimental-ct-react': ^1.30.0
+  '@playwright/test': ^1.30.0
   '@tabler/icons': ^1.119.0
   '@tanstack/react-query': ^4.22.3
   '@types/node': ^18.11.18
@@ -13,6 +16,7 @@ specifiers:
   '@vitejs/plugin-react': ^3.0.1
   axios: ^1.2.3
   dayjs: ^1.11.7
+  dotenv: ^16.0.3
   eslint: ^8.2.0
   eslint-config-airbnb: ^19.0.4
   eslint-plugin-import: ^2.25.3
@@ -32,11 +36,13 @@ specifiers:
 dependencies:
   '@emotion/react': 11.10.5_3stiutgnnbnfnf3uowm5cip22i
   '@emotion/styled': 11.10.5_jrh5enlbqfbnumycmktdqgd6se
-  '@mantine/core': 5.10.1_a3e44or6bupsbrlb2epm7rhj3a
+  '@mantine/core': 5.10.1_ylq7zkqz7uvrjy7wd5cseqyxu4
+  '@mantine/hooks': 5.10.3_react@18.2.0
   '@tabler/icons': 1.119.0_biqbaboplfbrettd7655fr4n2y
   '@tanstack/react-query': 4.22.4_biqbaboplfbrettd7655fr4n2y
   axios: 1.2.3
   dayjs: 1.11.7
+  dotenv: 16.0.3
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-router-dom: 6.7.0_biqbaboplfbrettd7655fr4n2y
@@ -44,6 +50,8 @@ dependencies:
 
 devDependencies:
   '@nabla/vite-plugin-eslint': 1.5.0_eslint@8.32.0+vite@4.0.4
+  '@playwright/experimental-ct-react': 1.30.0_@types+node@18.11.18
+  '@playwright/test': 1.30.0
   '@types/node': 18.11.18
   '@types/react': 18.0.27
   '@types/react-dom': 18.0.10
@@ -738,7 +746,7 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.14
     dev: true
 
-  /@mantine/core/5.10.1_a3e44or6bupsbrlb2epm7rhj3a:
+  /@mantine/core/5.10.1_ylq7zkqz7uvrjy7wd5cseqyxu4:
     resolution: {integrity: sha512-ZVVrakV8QUFxAUNh8LCyJS6gKKpQbXSh2OQ757L/Q07aYNaYFvgwuSyI7+p32oGrgc+RZ53KroB7zZUVj/hvEw==}
     peerDependencies:
       '@mantine/hooks': 5.10.1
@@ -746,6 +754,7 @@ packages:
       react-dom: '>=16.8.0'
     dependencies:
       '@floating-ui/react-dom-interactions': 0.10.3_5ndqzdd6t4rivxsukjv3i3ak2q
+      '@mantine/hooks': 5.10.3_react@18.2.0
       '@mantine/styles': 5.10.1_sogmqz4enknxtkxk3k5s6bqwnq
       '@mantine/utils': 5.10.1_react@18.2.0
       '@radix-ui/react-scroll-area': 1.0.2_biqbaboplfbrettd7655fr4n2y
@@ -755,6 +764,14 @@ packages:
     transitivePeerDependencies:
       - '@emotion/react'
       - '@types/react'
+    dev: false
+
+  /@mantine/hooks/5.10.3_react@18.2.0:
+    resolution: {integrity: sha512-fFDXF0A596z10QKeWAGtTZJ4QotsMxhhbjfWWRHMogY/hXHQ2S+7+GFotpF2JbzefYztpawHEJevy3eYF8cQmQ==}
+    peerDependencies:
+      react: '>=16.8.0'
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /@mantine/styles/5.10.1_sogmqz4enknxtkxk3k5s6bqwnq:
@@ -810,6 +827,32 @@ packages:
     dependencies:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.15.0
+    dev: true
+
+  /@playwright/experimental-ct-react/1.30.0_@types+node@18.11.18:
+    resolution: {integrity: sha512-SjjmPAaqF6u4fAyLvYCl5LunHs+kH7LTmiwG1IrjdsPjKazX8EffaVNI54PtblExLcKiyhy6Gpwn4rDDu3LxJg==}
+    engines: {node: '>=14'}
+    dependencies:
+      '@playwright/test': 1.30.0
+      '@vitejs/plugin-react': 3.0.1_vite@4.0.4
+      vite: 4.0.4_@types+node@18.11.18
+    transitivePeerDependencies:
+      - '@types/node'
+      - less
+      - sass
+      - stylus
+      - sugarss
+      - supports-color
+      - terser
+    dev: true
+
+  /@playwright/test/1.30.0:
+    resolution: {integrity: sha512-SVxkQw1xvn/Wk/EvBnqWIq6NLo1AppwbYOjNLmyU0R1RoQ3rLEBtmjTnElcnz8VEtn11fptj1ECxK0tgURhajw==}
+    engines: {node: '>=14'}
+    hasBin: true
+    dependencies:
+      '@types/node': 18.11.18
+      playwright-core: 1.30.0
     dev: true
 
   /@radix-ui/number/1.0.0:
@@ -1554,7 +1597,6 @@ packages:
   /dotenv/16.0.3:
     resolution: {integrity: sha512-7GO6HghkA5fYG9TYnNxi14/7K9f5occMlp3zXAuSxn7CKCxt9xbNWG7yF8hTCSUchlfWSe3uLmlPfigevRItzQ==}
     engines: {node: '>=12'}
-    dev: true
 
   /ejs/3.1.8:
     resolution: {integrity: sha512-/sXZeMlhS0ArkfX2Aw780gJzXSMPnKjtspYZv+f3NiKLlubezAHDU5+9xz6gd3/NhG3txQCo6xlglmTS+oTGEQ==}
@@ -3016,6 +3058,12 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       find-up: 4.1.0
+    dev: true
+
+  /playwright-core/1.30.0:
+    resolution: {integrity: sha512-7AnRmTCf+GVYhHbLJsGUtskWTE33SwMZkybJ0v6rqR1boxq2x36U7p1vDRV7HO2IwTZgmycracLxPEJI49wu4g==}
+    engines: {node: '>=14'}
+    hasBin: true
     dev: true
 
   /postcss/8.4.21:

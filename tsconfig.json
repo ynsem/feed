@@ -23,12 +23,15 @@
     "baseUrl": ".",
     "paths": {
       "@/*": [
-        "./src/*"
+        "./src/*",
+
       ]
     }
   },
   "include": [
-    "src"
+    "src", 
+    "tests/comment.spec.tsz",
+    "playwright"
   ],
   "references": [
     {
